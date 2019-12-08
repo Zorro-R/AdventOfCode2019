@@ -16,7 +16,7 @@ def run_intcode(intcode):
             return(intcode[0])
 
 
-with open("Input2.txt", "r") as f:
+with open("input2.txt", "r") as f:
     intcode_static = [int(x) for x in f.readlines()[0].split(",")]
 
     # Make a copy of intcode to be modified
