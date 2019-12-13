@@ -45,3 +45,23 @@ for num in passwords:
 
 potential_passwords = [x for x in passwords if x not in not_passwords]
 print(len(potential_passwords))  # Solution to part 1
+
+#potential_passwords = [112233, 123444, 111122]
+new_not_passwords = []
+# Solution for part 2
+for password in potential_passwords:
+    list_of_adjacent_equals = []
+    for i in range(len(str(password)) - 1):
+        # Stored as string in order to be able to index
+        adjacent_digits = str(password)[i:i+2]
+        if adjacent_digits[0] == adjacent_digits[1]:
+            list_of_adjacent_equals.append(
+                (adjacent_digits[0], adjacent_digits[1]))
+
+    print(list_of_adjacent_equals)
+    # if there are repeated adjacent digits and one "double" occurs only once
+    if len(set(list_of_adjacent_equals)) < len(list_of_adjacent_equals) and not 1 in [list_of_adjacent_equals.count(x) for x in set(list_of_adjacent_equals)]:
+        new_not_passwords.append(password)
+
+# Solution to part 2
+print(len([password for password in potential_passwords if password not in new_not_passwords]))
