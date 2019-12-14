@@ -6,21 +6,16 @@ def fuel(mass):
 
 
 def fuel_recursive(mass):
-    #fuel_required = 0
-    # print(fuel(mass))
-    # print(fuel(fuel(mass)))
-    #skurr = input("Pause")
-    if (fuel(fuel(mass)) <= 0):  # Base case
-        #print("Base case" + str(fuel(mass)))
+    if (fuel(mass)) <= 0:
+        return 0
+    elif (fuel(fuel(mass)) <= 0):
         return fuel(mass)
-    else:  # Recursive case
-        #print("Recursive case: " + str((fuel(mass) + fuel_recursive(fuel(fuel(mass))))))
+    else:
         return fuel(mass) + fuel(fuel(mass)) + fuel_recursive(fuel(fuel(mass)))
 
 
-with open("input1.txt", "r") as f:
+with open("Day1\\input1.txt", "r") as f:
     masses = [int(x.strip()) for x in f.readlines()]
-    print(masses)
 
     total_fuel = 0
     total_fuel_recursive = 0
@@ -33,7 +28,7 @@ with open("input1.txt", "r") as f:
     print("Answer to part 2: " + str(total_fuel_recursive))  # Solution to part 2
 
 
-# These all work but the answer is still wrong :/
+# Examples from the problem
 # print(fuel_recursive(14))
 # print(fuel_recursive(1969))
 # print(fuel_recursive(100756))
