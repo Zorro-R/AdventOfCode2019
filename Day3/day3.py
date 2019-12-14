@@ -1,4 +1,4 @@
-with open("input3.txt", "r") as f:
+with open("Day3\\input3.txt", "r") as f:
     wire_instructions = f.readlines()
     # wire_instructions = [
     #     "R75,D30,R83,U83,L12,D49,R71,U7,L72",
